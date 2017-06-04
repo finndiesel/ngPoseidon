@@ -1,0 +1,20 @@
+<form #loginForm="ngForm" (submit)="submitForm(loginForm)">
+  <md-card>
+    <md-card-title>
+      Log In
+    </md-card-title>
+    <md-card-content>
+      <md-input-container>
+        <input mdInput [(ngModel)]="form.email" name="email" placeholder="Email" type="email" required>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput [(ngModel)]="form.password" name="password" placeholder="Password" type="password" required>
+      </md-input-container>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button type="submit">
+        Log In
+      </button>
+    </md-card-actions>
+  </md-card>
+</form>

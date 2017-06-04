@@ -1,0 +1,83 @@
+<md-sidenav-container>
+  <md-spinner *ngIf="loading"></md-spinner>
+  <md-card *ngIf="!loading" class="data-table-container">
+    <div class="search-bar" *ngIf="showSearchBar" @searchAnimation>
+      <md-input-container>
+        <input mdInput type="text" placeholder="Search">
+      </md-input-container>
+    </div>
+    <md-card-title>
+      {{ title }} - {{ tableCount }}
+      <button md-icon-button class="filter" mdTooltip="Filter" (click)="filtersOpened = !filtersOpened">
+        <md-icon>filter_list</md-icon>
+      </button>
+      <button md-icon-button class="add" mdTooltip="Add" (click)="openAddDialog()">
+        <md-icon>add</md-icon>
+      </button>
+      <!--<button md-icon-button class="add" mdTooltip="Search" (click)="showSearchBar = !showSearchBar">-->
+        <!--<md-icon>search</md-icon>-->
+      <!--</button>-->
+    </md-card-title>
+    <md-card-content>
+      <table>
+        <thead>
+          <tr>
+            <td>
+              <md-checkbox [checked]="checkedAll" (change)="checkAll($event)"></md-checkbox>
+            </td>
+            <td *ngFor="let column of columns">
+              {{ column.name }}
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of data; let i = index" (dblclick)="double(i)">
+            <td>
+              <md-checkbox [checked]="checkedMap[i]" (change)="changeCheckbox($event, i)"></md-checkbox>
+            </td>
+            <td *ngFor="let column of columns">
+              {{ user[column.key] != null ? user[column.key] : 'null' }}
+            </td>
+            <td>
+              <md-icon (click)="openEditDialog(i)">edit</md-icon>
+              <md-icon (click)="openDeleteDialog(i)">delete</md-icon>
+              <md-icon (click)="abcd()"></md-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </md-card-content>
+    <md-card-footer>
+      <div class="pagination-footer">
+        <div class="row-per-page">
+          Rows per page:
+
+        </div>
+        <md-select [(ngModel)]="perPage" (change)="updateTable()">
+          <md-option *ngFor="let num of numbers" [value]="num">
+            {{ num }}
+          </md-option>
+        </md-select>
+        <div class="pagination-counter">
+          {{ (page - 1 ) * perPage + 1 }} - {{ (page - 1 ) * perPage + data.length }} of {{ tableCount }}
+        </div>
+        <div class="pagination-left">
+          <md-icon (click)="pageLeft()" [ngClass]="{'disabled': page == 1 }">
+            keyboard_arrow_left
+          </md-icon>
+        </div>
+        <div class="pagination-right">
+          <md-icon (click)="pageRight()" [ngClass]="{'disabled': tableCount <= page * (selectedPageNum | toInt) + ( selectedPageNum | toInt ) }">
+            keyboard_arrow_right
+          </md-icon>
+        </div>
+      </div>
+    </md-card-footer>
+  </md-card>
+  <md-sidenav mode="side" [opened]="filtersOpened" align="end">
+    <h3>
+      Filters
+    </h3>
+    <filters *ngIf="tableFilters" [filters]="tableFilters" (search)="search()" (formChanges)="formChanges($event)"></filters>
+  </md-sidenav>
+</md-sidenav-container>

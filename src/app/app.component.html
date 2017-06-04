@@ -1,0 +1,37 @@
+<md-toolbar color="primary">
+  <span class="menu">
+    <md-icon>menu</md-icon>
+  </span>
+
+  <span>Admin Tool - {{ envName }}</span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="middle"></span>
+  <span *ngIf="loggedIn">
+    <a md-button routerLink="/">Home</a>
+    <a md-button routerLink="/articles">Articles</a>
+    <a md-button routerLink="/groups">
+      Groups
+      <span [mdMenuTriggerFor]="groupsMenu">
+        <md-icon>
+          <i class="material-icons">keyboard_arrow_down</i>
+        </md-icon>
+      </span>
+    </a>
+
+    <md-menu #groupsMenu="mdMenu">
+      <a md-menu-item routerLink="/groups"> Comments </a>
+      <a md-menu-item routerLink="/groups"> Discussions </a>
+    </md-menu>
+
+    <a md-button routerLink="/users">Users</a>
+  </span>
+  <md-menu #settingsMenu="mdMenu">
+    <button md-menu-item (click)="logout()" *ngIf="loggedIn"> Log Out </button>
+    <button md-menu-item (click)="login()" *ngIf="!loggedIn"> Log In </button>
+  </md-menu>
+  <span md-icon-button [mdMenuTriggerFor]="settingsMenu" class="settings">
+    <i class="material-icons">keyboard_arrow_down</i>
+  </span>
+</md-toolbar>
+<router-outlet></router-outlet>

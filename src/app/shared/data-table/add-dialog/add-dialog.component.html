@@ -1,0 +1,19 @@
+
+<h1 md-card-title>
+  New {{ type }}
+</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <md-dialog-content>
+    <div *ngFor="let question of newQuestions" class="form-row">
+      <df-question [question]="question" [form]="form"></df-question>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <button md-button type="submit" [disabled]="!form.valid">
+      Save
+    </button>
+    <button md-button (click)="dialogRef.close('abdsdfasdfafsd')">
+      Cancel
+    </button>
+  </md-dialog-actions>
+</form>

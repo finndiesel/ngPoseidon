@@ -1,0 +1,22 @@
+<div [formGroup]="form" class="filter">
+  <div [ngSwitch]="filter.controlType">
+
+    <md-checkbox *ngSwitchCase="'checkbox'" [formControlName]="filter.key" [id]="filter.key" indeterminate="true">
+      {{ filter.label }}
+    </md-checkbox>
+
+    <md-select *ngSwitchCase="'select'" placeholder="{{filter.label}}" [id]="filter.key" [formControlName]="filter.key">
+      <md-option *ngFor="let option of filter.options" value="{{option.key}}">
+        {{ option.value }}
+      </md-option>
+    </md-select>
+
+    <md-input-container *ngSwitchCase="'textbox'">
+      <input mdInput [formControlName]="filter.key"
+             [placeholder]="filter.label" [id]="filter.key" [type]="filter.type">
+    </md-input-container>
+
+    <df-discipline *ngSwitchCase="'disciplines'" [formGroup]="form" [key]="filter.key" [label]="filter.label"></df-discipline>
+
+  </div>
+</div>

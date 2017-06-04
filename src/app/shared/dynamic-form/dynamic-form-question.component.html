@@ -1,0 +1,51 @@
+<!--
+  All of the admin tools input options (plus other features attached to the form should go here
+  And added to the switch statement in build-form-questions.ts
+-->
+
+
+<div [formGroup]="form" class="question" [ngClass]="{'hidden': question.key == 'id'}">
+
+  <div [ngSwitch]="question.controlType">
+
+    <ng-container *ngSwitchCase="'id'">
+      <input [formControlName]="question.key" [id]="question.key">
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'checkbox'">
+      <md-checkbox [formControlName]="question.key" required="{{ question.required }}"> {{ question.label }} </md-checkbox>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'date'">
+      <md-input-container>
+        <input mdInput [mdDatepicker]="date" placeholder="Choose a date" [formControlName]="question.key" required="{{ question.required }}">
+        <button mdSuffix [mdDatepickerToggle]="date"></button>
+      </md-input-container>
+      <md-datepicker #date></md-datepicker>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'disciplines'">
+      <df-discipline [formGroup]="form" [key]="question.key" [label]="question.label"></df-discipline>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'dropdown'">
+      <md-select placeholder="{{question.label}}" [formControlName]="question.key" required="{{question.required}}">
+        <md-option *ngFor="let option of question.options" value="{{option.key}}">
+          {{ option.value }}
+        </md-option>
+      </md-select>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'textbox'">
+      <md-input-container>
+        <input mdInput [formControlName]="question.key" required="{{ question.required }}"
+               [placeholder]="question.label" [id]="question.key" [type]="question.type">
+      </md-input-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'wizwig'">
+      <label class="wizwig" *ngSwitchCase="'wizwig'"> {{ question.label }} </label>
+      <ckeditor *ngSwitchCase="'wizwig'" [formControlName]="question.key"></ckeditor>
+    </ng-container>
+  </div>
+</div>

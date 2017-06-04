@@ -1,0 +1,20 @@
+
+<h1 md-dialog-title>
+  Edit {{ type }}
+</h1>
+
+<md-dialog-content>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let question of editQuestions" class="form-row">
+      <df-question [question]="question" [form]="form"></df-question>
+    </div>
+  </form>
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-button (click)="dialogRef.close()">
+    Cancel
+  </button>
+  <button md-button type="submit" [disabled]="!form.valid">
+    Save
+  </button>
+</md-dialog-actions>

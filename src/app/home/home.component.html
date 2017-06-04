@@ -1,0 +1,33 @@
+<h2>
+  Random Stats from the last few months
+</h2>
+<div class="half">
+  <canvas baseChart width="400" height="400"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>
+<div class="half">
+  <button md-button (click)="randomize()">Update</button>
+</div>
+<div class="half">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+</div>
+<div class="half">
+
+</div>
+<div class="half">
+
+</div>

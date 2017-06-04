@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  font-family: Roboto, sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+md-sidenav-container {
+  height: 100%;
+}
+
+md-dialog-container {
+  min-width: 400px;
+}
+
+md-input-container, md-select {
+  width: 100%;
+}
+
+md-card-actions {
+  margin-bottom: 0 !important;
+}
+
+.mat-select-trigger {
+  min-width: 50px !important;
+}
+
+/*.cdk-global-overlay-wrapper {*/
+  /*align-items: baseline !important;*/
+/*}*/
+
+/*ng-component > form {*/
+  /*overflow-x: hidden;*/
+  /*overflow-y: scroll;*/
+  /*max-height: 600px;*/
+/*}*/

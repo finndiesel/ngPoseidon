@@ -1,0 +1,8 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div *ngFor="let filter of filters" class="form-row">
+    <df-filter [filter]="filter" [form]="form"></df-filter>
+  </div>
+  <div class="form-row">
+    <button md-button class="submit-btn" type="submit">Search</button>
+  </div>
+</form>

@@ -1,0 +1,160 @@
+:host {
+  color: rgba(#000, .54);
+  display: block;
+  height: 100%;
+}
+
+
+md-card{
+  position: relative;
+
+  .search-bar {
+    background: #64b5f6;
+    margin: -24px;
+    //opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 1001;
+
+    md-input-container {
+      padding: 8px 16px;
+    }
+  }
+}
+
+md-sidenav-container {
+  background-color: #fff;
+}
+
+md-spinner {
+  margin: 0 auto;
+}
+
+.data-table-container {
+  margin: 24px auto;
+  max-width: 800px;
+
+  @media(max-width: 800px) {
+    margin: 24px 16px;
+  }
+}
+
+md-card-title {
+  color: rgba(#000, .87);
+  font-size: 20px;
+  margin-top: 16px !important;
+
+  .add, .filter {
+    float: right;
+  }
+}
+
+table {
+  border-spacing: 0;
+  margin-bottom: 32px !important;
+  padding-bottom: 16px;
+  width: 100%;
+
+  tr {
+    height: 40px;
+
+    td {
+      padding: 0 16px;
+    }
+  }
+
+  thead {
+    color: rgba(0,0,0,.54);
+    font-size: 12px;
+  }
+
+  tbody {
+    font-size: 12px;
+
+    tr {
+      cursor: pointer;
+      height: 48px;
+
+      &:hover {
+        background-color: #eee;
+      }
+
+      md-icon {
+        margin-right: 16px;
+        padding: 4px 0 0 4px;
+      }
+
+      td {
+        border-top: 1px rgba(0,0,0,.12) solid;
+
+        &:last-child {
+          display: flex;
+          padding: 16px 0;
+        }
+      }
+    }
+  }
+}
+
+.pagination-footer {
+  display: flex;
+  flex-direction: row;
+  float: right;
+  height: 56px;
+  margin-bottom: -4px;
+  margin-right: 32px;
+  padding: 8px;
+
+  .row-per-page, .pagination-counter {
+    margin-top: 4px;
+    margin-right: 16px;
+  }
+
+  .pagination-counter {
+    padding: 0 16px;
+  }
+
+  .pagination-left {
+    margin-right: 8px;
+  }
+
+  .disabled {
+    color: #eee;
+    cursor: default;
+  }
+
+}
+
+md-sidenav {
+  border-left: 1px solid #eee;
+  h3 {
+    padding: 0 8px;
+  }
+}
+
+md-icon {
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+
+  &:hover {
+    background-color: rgba(#000, .24);
+  }
+}
+
+md-card-footer {
+  md-icon {
+    font-size: 32px;
+    height: 32px;
+    width: 32px;
+  }
+}
+
+md-select {
+  width: 50px !important;
+}
+
+/deep/ .pagination-footer .md-select-trigger {
+  min-width: 50px !important;
+}
