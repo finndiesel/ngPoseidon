@@ -4,6 +4,8 @@ import { CheckboxQuestion } from './question-checkbox';
 import { DateQuestion } from './question-date';
 import { DropdownQuestion } from './question-dropdown';
 import { DisciplinesQuestion } from './question-disciplines';
+import { FileQuestion } from './question-file';
+import { ImageQuestion } from './question-image';
 import { TextboxQuestion } from './question-textbox';
 import { IdQuestion } from './question-id';
 import { WizwigQuestion } from './question-wizwig';
@@ -53,6 +55,26 @@ export class BuildFormQuestions {
             options: input.options
         });
         break;
+
+        case 'file':
+          question = new FileQuestion({
+            key: input.key,
+            label: input.label,
+            value: data[input.key],
+            required: input.required,
+            options: input.options
+          });
+        break;
+
+        case 'image':
+          question = new ImageQuestion({
+            key: input.key,
+            label: input.label,
+            value: data[input.key],
+            required: input.required,
+            options: input.options
+          });
+          break;
 
         case 'options':
           question = new DropdownQuestion({

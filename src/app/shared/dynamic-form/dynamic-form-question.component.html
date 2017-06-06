@@ -36,6 +36,24 @@
       </md-select>
     </ng-container>
 
+    <ng-container *ngSwitchCase="'file'">
+      <div class="file-container">
+        <input type="file" style="display: none;">
+        <button md-button-raised class="file-upload-button">
+          Choose an image to upload
+        </button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'image'">
+      <div class="image-container">
+        <input type="file" style="display: none;">
+        <button md-button-raised class="image-upload-button">
+          Choose an image to upload
+        </button>
+      </div>
+    </ng-container>
+
     <ng-container *ngSwitchCase="'textbox'">
       <md-input-container>
         <input mdInput [formControlName]="question.key" required="{{ question.required }}"
