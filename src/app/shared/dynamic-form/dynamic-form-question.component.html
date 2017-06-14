@@ -38,7 +38,8 @@
 
     <ng-container *ngSwitchCase="'file'">
       <div class="file-container">
-        <input type="file" style="display: none;">
+        <input type="file" style="display: none;" [formControlName]="question.key"
+               required="{{ question.required }}" [id]="question.key">
         <button md-button-raised class="file-upload-button">
           Choose an image to upload
         </button>
@@ -47,7 +48,8 @@
 
     <ng-container *ngSwitchCase="'image'">
       <div class="image-container">
-        <input type="file" style="display: none;">
+        <input type="file" style="display: none;" [formControlName]="question.key"
+               required="{{ question.required }}" [id]="question.key">
         <button md-button-raised class="image-upload-button">
           Choose an image to upload
         </button>
