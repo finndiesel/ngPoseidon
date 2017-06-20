@@ -59,6 +59,12 @@ export class UsersComponent {
       required: false,
     },
     {
+      key: 'user_photo',
+      label: 'Thumbnail',
+      type: 'image',
+      required: false,
+    },
+    {
       key: 'disciplines',
       label: 'Discipline',
       type: 'disciplines',
