@@ -40,7 +40,7 @@
       <div class="file-container">
         <input type="file" style="display: none;" [formControlName]="question.key"
                required="{{ question.required }}" [id]="question.key">
-        <button md-button-raised class="file-upload-button">
+        <button md-button-raised class="file-upload-button" type="button">
           Choose an image to upload
         </button>
       </div>
@@ -50,7 +50,7 @@
       <div class="image-container">
         <input type="file" style="display: none;" [formControlName]="question.key"
                required="{{ question.required }}" [id]="question.key">
-        <button md-button-raised class="image-upload-button">
+        <button md-button-raised class="image-upload-button" type="button">
           Choose an image to upload
         </button>
       </div>
